@@ -4,6 +4,8 @@ from passlib.hash import bcrypt
 
 
 class User(db.Model, UserMixin):
+    __tablename__ = 'account'
+
     id = db.Column(db.Integer,
                    primary_key=True)
 
