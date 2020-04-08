@@ -12,5 +12,5 @@ class House(db.Model):
     size = db.Column(db.Float, unique=False, nullable=True)
 
     pub_date = db.Column(db.DateTime, nullable=False)
-    publisherId = db.Column(db.Integer, db.ForeignKey('user.id'),
+    publisherId = db.Column(db.Integer, db.ForeignKey('account.id'),
                             nullable=False)

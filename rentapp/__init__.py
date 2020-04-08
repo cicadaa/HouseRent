@@ -1,10 +1,8 @@
 from flask import Flask
 from .model import db
 from .admin import admin
-from flask_login import LoginManager
+from rentapp.login_manager import login_manager
 from .api import init_map
-
-login_manager = LoginManager()
 
 
 def create_app(config):

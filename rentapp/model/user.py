@@ -28,7 +28,7 @@ class User(db.Model, UserMixin):
                               nullable=False)
 
     houses = db.relationship('House',
-                             backref='user',
+                             backref='account',
                              lazy=True)
 
     created_on = db.Column(db.DateTime,
@@ -53,3 +53,6 @@ class User(db.Model, UserMixin):
     @password.setter
     def password(self, password):
         self.password_hash = bcrypt.hash(password)
+
+    def __repr__(self):
+        return '<User %r>' % self.name
