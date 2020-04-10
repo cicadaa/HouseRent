@@ -32,13 +32,13 @@ class Signup(Resource):
 
     def post(self):
         parser = reqparse.RequestParser()
-        parser.add_argument('name', required=True, help='username is required and should be a string')
+        parser.add_argument('username', required=True, help='username is required and should be a string')
         parser.add_argument('email', required=True, help='email is required and should be a string')
-        parser.add_argument('contact', required=False, help='username is required and should be a string')
+        parser.add_argument('contact', required=False)
         parser.add_argument('password', required=True, help='password is required and should be a string')
 
         kwargs = parser.parse_args()
         code, user = signup(kwargs)
         if code != SUCCESS:
             return code
-        return {"user_id": user.id}
+        return {'user': user.name}

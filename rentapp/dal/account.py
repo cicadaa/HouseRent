@@ -8,7 +8,7 @@ from flask_login import login_user, logout_user
 
 
 def signup(kwargs):
-    user_name = kwargs.get('name', None)
+    user_name = kwargs.get('username', None)
     email = kwargs.get('email', None)
     password = kwargs.get('password', None)
     contact = kwargs.get('contact', None)

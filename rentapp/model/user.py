@@ -1,9 +1,12 @@
 from . import db
+
 from flask_login import UserMixin
 from passlib.hash import bcrypt
+from datetime import datetime
 
 
 class User(db.Model, UserMixin):
+
     __tablename__ = 'account'
 
     id = db.Column(db.Integer,
@@ -11,7 +14,7 @@ class User(db.Model, UserMixin):
 
     contact = db.Column(db.Integer,
                         unique=False,
-                        nullable=False)
+                        nullable=True)
 
     email = db.Column(db.String,
                       unique=True,
@@ -20,7 +23,7 @@ class User(db.Model, UserMixin):
     name = db.Column(db.String,
                      primary_key=False,
                      unique=False,
-                     nullable=False)
+                     nullable=True)
 
     password_hash = db.Column(db.String(200),
                               primary_key=False,
@@ -32,19 +35,13 @@ class User(db.Model, UserMixin):
                              lazy=True)
 
     created_on = db.Column(db.DateTime,
-                           index=False,
-                           unique=False,
-                           nullable=True)
+                           default=datetime.now)
 
     last_login = db.Column(db.DateTime,
-                           index=False,
-                           unique=False,
-                           nullable=True)
+                           onupdate=datetime.now)
 
     last_update = db.Column(db.DateTime,
-                            index=False,
-                            unique=False,
-                            nullable=True)
+                            onupdate=datetime.now)
 
     @property
     def password(self):
