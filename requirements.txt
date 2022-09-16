@@ -15,7 +15,7 @@ gevent==1.4.0
 greenlet==0.4.15
 itsdangerous==1.1.0
 Jinja2==2.11.3
-Mako==1.1.2
+Mako==1.2.2
 MarkupSafe==1.1.1
 passlib==1.7.2
 psycopg2==2.8.4
